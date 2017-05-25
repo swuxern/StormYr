@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.swuxe.stormyr.displaySok"
+    android:background="#43A5CF"
+    android:id="@+id/parentL">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:id="@+id/imgTv"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:layout_alignParentLeft="true"
+        android:textSize="20dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="25dp"
+        android:paddingBottom="25dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgTv"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/infoTv"
+        android:gravity="center"
+        android:paddingTop="50dp"
+        android:paddingLeft="15dp"
+        android:textSize="17dp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/llhs"
+            android:orientation="horizontal"
+            android:background="#43A5CF">
+        </LinearLayout>
+    </HorizontalScrollView>
+</RelativeLayout>
