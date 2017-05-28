@@ -59,7 +59,7 @@ public class sokSkjerm extends AppCompatActivity {
 
     public void SokEtterSted(String sokSted) throws IOException {
         final LinearLayout dynamicView = (LinearLayout)findViewById(R.id.linLay);
-        String str="";
+        String str;
         StringBuffer buf = new StringBuffer();
         InputStream is = this.getResources().openRawResource(R.raw.noreg);
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));

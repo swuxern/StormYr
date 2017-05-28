@@ -1,10 +1,13 @@
 package com.example.swuxe.stormyr;
 
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,7 +22,7 @@ public class displaySok extends AppCompatActivity implements GetData.AsyncRespon
     TextView imgsTv;
     TextView dagDato;
     TextView infoTvs;
-
+    Button sokSted;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,8 @@ public class displaySok extends AppCompatActivity implements GetData.AsyncRespon
         dagDato = (TextView) findViewById(R.id.textView1);
         imgsTv = (TextView) findViewById(R.id.imgTv);
         infoTvs = (TextView) findViewById(R.id.infoTv);
+
+        sokSted = (Button) findViewById(R.id.sokSted);
 
         GetData data = new GetData();
         data.delegate = this;
@@ -88,7 +93,17 @@ public class displaySok extends AppCompatActivity implements GetData.AsyncRespon
         makeTW(28);
         makeTW(32);
         makeTW(35);
-        }
+
+        sokSted.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), sokSkjerm.class);
+                startActivity(intent);
+            }
+        });
+
+    }
 
         //Funksjon for å lage TextView med data for Langtidsvarsel, legges inn i LinearView ll
         public void makeTW(int indx) {
@@ -113,8 +128,5 @@ public class displaySok extends AppCompatActivity implements GetData.AsyncRespon
             ll.addView(tv);
 
         }
-
-
-
 
 }

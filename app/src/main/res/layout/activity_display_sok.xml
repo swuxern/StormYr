@@ -36,10 +36,18 @@
         android:paddingLeft="15dp"
         android:textSize="17dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Søk etter sted"
+        android:id="@+id/sokSted"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"/>
+
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_above="@+id/sokSted">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,4 +57,5 @@
             android:background="#43A5CF">
         </LinearLayout>
     </HorizontalScrollView>
+
 </RelativeLayout>

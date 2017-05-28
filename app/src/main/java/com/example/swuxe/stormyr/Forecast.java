@@ -8,9 +8,7 @@ import java.util.List;
 
 import static android.R.attr.required;
 
-/**
- * Created by tim on 23.02.2017.
- */
+
 @Root(strict=false)
 public class Forecast {
     @ElementList(name="tabular")

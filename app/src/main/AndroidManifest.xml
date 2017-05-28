@@ -20,8 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".sokSkjerm" />
-        <activity android:name=".displaySok"></activity>
+
+        <activity
+            android:name=".sokSkjerm"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".displaySok">
+
+        </activity>
     </application>
 
 </manifest>
