@@ -11,10 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.Manifest;
-import android.widget.Toast;
 
 
 import java.io.BufferedReader;
@@ -49,32 +47,27 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+        //Om GPS er på
         if (SmartLocation.with(this).location().state().locationServicesEnabled()) {
             // Here, thisActivity is the current activity
             if (ContextCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED) {
 
-                // Should we show an explanation?
+
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                         Manifest.permission.ACCESS_FINE_LOCATION)) {
 
-                    // Show an explanation to the user *asynchronously* -- don't block
-                    // this thread waiting for the user's response! After the user
-                    // sees the explanation, try again to request the permission.
+
 
                 } else {
 
-                    // No explanation needed, we can request the permission.
 
                     ActivityCompat.requestPermissions(this,
                             new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                             MY_PERMISSIONS_REQUEST_FOR_LOCATION);
 
-                    // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
-                    // app-defined int constant. The callback method gets the
-                    // result of the request.
+
                 }
             } else {
                 findLocation();
@@ -118,10 +111,10 @@ public class MainActivity extends AppCompatActivity {
                     if (results.size() > 0) {
                         Address result = results.get(0);
 
-                        String by = result.getLocality();
                         result.getAddressLine(0);
+                        //Splitter string opp på space sted[1] vil gi Postnummer
                         String[] sted = result.getAddressLine(1).split("\\s+");
-                        locationText.setText(sted[0]);
+
                         try {
                             SokEtterSted(sted[0]);
                         } catch (IOException e) {
@@ -138,14 +131,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Finner sted via og XML-link til sted via postnummer
     public void SokEtterSted(String postNr) throws IOException {
         Intent intent = new Intent(mContext, displaySok.class);
         String str;
         String postSted = "";
         StringBuffer buf = new StringBuffer();
+        //Leser inn fila postnummer i res/raw mappen
         InputStream is = this.getResources().openRawResource(R.raw.postnummer);
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-
+            //Itererer over linjene for å søke etter sted
             if (is != null) {
                 while ((str = reader.readLine()) != null) {
                     if (str.contains(postNr)) {
@@ -155,10 +150,10 @@ public class MainActivity extends AppCompatActivity {
             }
             is.close();
             if (postSted.length() != 0) {
-
+                //splitter opp String på tab
                 String rader[] = postSted.split("\t");
 
-
+                //rader[8] vil gi XML-link til varsel
                 String url = rader[8];
                 System.out.println(url);
                 intent.putExtra("URL", url);

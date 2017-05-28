@@ -1,12 +1,11 @@
 package com.example.swuxe.stormyr;
 
-import org.simpleframework.xml.Element;
+
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 import java.util.List;
 
-import static android.R.attr.required;
 
 
 @Root(strict=false)
