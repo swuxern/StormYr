@@ -37,12 +37,19 @@
         android:textSize="17dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Søk etter sted"
         android:id="@+id/sokSted"
+
+        android:text="Søk Etter Sted"
+        android:textColor="#525252"
+
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
         android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="8dp"
+        />
 
     <HorizontalScrollView
         android:layout_width="match_parent"

@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         if (location != null) {
             final String text = new String();
 
-            // We are going to get the address for the current position
+            // Finner adresse for nåverende posisjon
             SmartLocation.with(this).geocoding().reverse(location, new OnReverseGeocodingListener() {
                 @Override
                 public void onAddressResolved(Location original, List<Address> results) {

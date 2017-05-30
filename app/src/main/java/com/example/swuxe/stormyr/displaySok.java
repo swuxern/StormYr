@@ -91,6 +91,7 @@ public class displaySok extends AppCompatActivity implements GetData.AsyncRespon
         makeTW(32);
         makeTW(35);
 
+        //OnClickListener, går til søkeskjerm for å søke etter nytt sted
         sokSted.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -102,14 +103,18 @@ public class displaySok extends AppCompatActivity implements GetData.AsyncRespon
 
     }
 
-        //Funksjon for å lage TextView med data for Langtidsvarsel, legges inn i LinearView ll
+        /*
+        *   Funksjon for å lage TextView med data for Langtidsvarsel, legges inn i LinearView ll
+        *   Henter temperatur, dato og symbolnavn for været, legger symbol som background med
+        *   dato og temperatur som tekst
+        */
         public void makeTW(int indx) {
             Time time = forecast.getTimeList().get(indx);
 
             String symbol = "sym" + time.getSymbol().getVar();
             String temps = time.getTemperature().getValue() + " C";
             String datoT = time.getFrom();
-            //Splitter opp dato slik at vi får bare dd/mm
+            //Splitter opp dato og formaterer slik at vi får bare dd/mm
             String arr[] = datoT.split("T");
             String arrs[] = arr[0].split("-");
             String dato = arrs[2] + "/" + arrs[1];
